@@ -5,10 +5,10 @@
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/seed/picsum/200/300)">
     <h2><%=link_to pigeon.name, pigeon_path(pigeon) %></h2>
 
+
     <p> Breed : <%= pigeon.breed %></p>
     <p> Speed : <%= pigeon.km_per_hour %></p>
     <p> Price : <%= pigeon.price_per_km %></p>
   </div>
   <% end %>
 </div>
-
