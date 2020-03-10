@@ -7,8 +7,10 @@
         <%= f.input :name %>
         <%= f.input :breed %>
         <%= f.input :km_per_hour %>
+        <%= f.input :price_per_km %>
         <%= f.button :submit, class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
 </div>
+<%= link_to "Back", pigeons_path, class: "btn btn-outline-dark mt-2" %>
