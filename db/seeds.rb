@@ -19,7 +19,7 @@ puts "#{User.count} users created"
     name: Faker::Name.middle_name,
     breed: Faker::Hacker.adjective,
     km_per_hour: rand(1..10),
-    price_per_hour: rand(1..10),
+    price_per_km: rand(1..10),
     user_id: rand(1..3)
   )
 end
