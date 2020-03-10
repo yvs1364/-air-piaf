@@ -6,8 +6,7 @@
 <p> Breed : <%= pigeon.breed %></p>
 <p> Speed : <%= pigeon.km_per_hour %></p>
 <p> Price : <%= pigeon.price_per_km %></p>
+
 <% end %>
 
- <% @pigeons.each do |pigeon| %>
-    <%= pigeon.name %>
- <% end %>
+<%= link_to "Add a pigeon", new_pigeon_path, class: "btn btn-outline-dark mt-2" %>
