@@ -5,8 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Pigeon.destroy_all
+User.destroy_all
+mehdi = User.create!(name: "Mehdi", email: "mehdi@mail.fr", password: "password", address: "Marseille")
+yvan = User.create!(name: "Yvan", email: "Yvan@mail.fr", password: "password", address: "Marseille")
+manu = User.create!(name: "Manu", email: "manu@mail.fr", password: "password", address: "Marseille")
+
+puts "#{User.count} users created"
+
 
 10.times do
-  Pigeon.new(name: Faker::Name.middle_name, breed: Faker::Hacker.adjective, km_per_hour: rand(1..10), price_per_hour: rand(1..10)).save
+  Pigeon.create!(
+    name: Faker::Name.middle_name,
+    breed: Faker::Hacker.adjective,
+    km_per_hour: rand(1..10),
+    price_per_hour: rand(1..10),
+    user_id: rand(1..3)
+  )
 end
-
+puts "#{Pigeon.count} pigeons created"
