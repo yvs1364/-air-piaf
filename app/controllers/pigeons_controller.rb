@@ -8,13 +8,15 @@ class PigeonsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @pigeon = Pigeon.find(params)
+    @journey = Journey.new
   end
 
   def create
     @pigeon = Pigeon.new(pigeon_params)
     if @pigeon.save
-      redirect_to pigeon_path(@pigeon)
+      redirect_to dashboard_path
     else
       render 'new'
     end
@@ -23,6 +25,7 @@ class PigeonsController < ApplicationController
   private
 
   def pigeon_params
-    params.require(:pigeon).permit(:name, :breed, :km_per_hour, :price_per_hour,:users_id)
+    params.require(:pigeon).permit(:name, :breed, :km_per_hour, :price_per_km,:users_id) #rajouter photo
+
   end
 end
