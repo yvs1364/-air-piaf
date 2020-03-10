@@ -1,5 +1,10 @@
 <h1> Index </h1>
 
- <% @pigeons.each do |pigeon| %>
-    <%= pigeon.name %>
- <% end %>
+<% @pigeons.each do |pigeon| %>
+<h1><%= pigeon.name %></h1>
+
+<p> Breed : <%= pigeon.breed %></p>
+<p> Speed : <%= pigeon.km_per_hour %></p>
+<p> Price : <%= pigeon.price_per_hour %></p>
+<% end %>
+

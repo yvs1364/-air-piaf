@@ -18,14 +18,14 @@ class PigeonsController < ApplicationController
     if @pigeon.save
       redirect_to dashboard_path
     else
-      render :new
+      render 'new'
     end
   end
 
   private
 
   def pigeon_params
-    params.require(:pigeon).permit(:name, :breed, :km_per_hours, :price_per_hour,:users_id) #rajouter photo
+    params.require(:pigeon).permit(:name, :breed, :km_per_hour, :price_per_km,:users_id) #rajouter photo
 
   end
 end
