@@ -1,1 +1,20 @@
-show.html.erb
+<div class="container">
+
+  <h1><%= @pigeon.name %></h1>
+  <%= link_to "Back to all cocktails", pigeons_path %>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <h3>Characteristics</h3>
+      <table class="table table-bordered">
+        <tbody>
+          <thead>
+            <th><%= @pigeon.breed %></th>
+            <th><%= @pigeon.km_per_hour%></th>
+            <!-- <th><%= @pigeon.price_per_km%></th> -->
+          </thead>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
