@@ -14,6 +14,7 @@ manu = User.create!(name: "Manu", email: "manu@mail.fr", password: "password", a
 puts "#{User.count} users created"
 
 
+
 10.times do
   Pigeon.create!(
     name: Faker::Name.middle_name,
