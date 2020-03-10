@@ -1,6 +1,6 @@
 class PigeonsController < ApplicationController
   def index
-    @pigeons = pigeon.all
+    @pigeons = Pigeon.all
   end
 
   def new
@@ -8,7 +8,7 @@ class PigeonsController < ApplicationController
   end
 
   def show
-    @pigeon = Restaurant.find(params[:id])
+    @pigeon = Pigeon.find(params)
   end
 
   def create
@@ -17,7 +17,7 @@ class PigeonsController < ApplicationController
   private
 
   def pigeon_params
-    params.require(:pigeon).permit(:breed)
+    params.require(:pigeon).permit(:name, :breed, :km_per_hours, :price_per_hour,:users_id)
 
   end
 end
