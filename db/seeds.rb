@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+10.times do
+  Pigeon.new(name: Faker::Name.middle_name, breed: Faker::Hacker.adjective, km_per_hour: rand(1..10), price_per_hour: rand(1..10)).save
+end
+
