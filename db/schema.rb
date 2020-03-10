@@ -10,11 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_03_10_095634) do
+=======
+ActiveRecord::Schema.define(version: 2020_03_10_094406) do
+>>>>>>> edbbf0bbf257f7ec5e2c1e65c6f339566a12d0a6
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "journeys", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "pigeon_id"
@@ -28,6 +33,8 @@ ActiveRecord::Schema.define(version: 2020_03_10_095634) do
     t.index ["user_id"], name: "index_journeys_on_user_id"
   end
 
+=======
+>>>>>>> edbbf0bbf257f7ec5e2c1e65c6f339566a12d0a6
   create_table "pigeons", force: :cascade do |t|
     t.string "name"
     t.string "breed"
@@ -51,7 +58,10 @@ ActiveRecord::Schema.define(version: 2020_03_10_095634) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
   add_foreign_key "journeys", "pigeons"
   add_foreign_key "journeys", "users"
+=======
+>>>>>>> edbbf0bbf257f7ec5e2c1e65c6f339566a12d0a6
   add_foreign_key "pigeons", "users"
 end
