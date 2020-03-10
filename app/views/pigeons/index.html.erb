@@ -1,7 +1,7 @@
 <h1> Index </h1>
 
 <% @pigeons.each do |pigeon| %>
-<h1><%= pigeon.name %></h1>
+<h2><%=link_to pigeon.name, pigeon_path(pigeon) %></h2>
 
 <p> Breed : <%= pigeon.breed %></p>
 <p> Speed : <%= pigeon.km_per_hour %></p>
