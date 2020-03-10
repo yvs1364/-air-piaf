@@ -20,3 +20,10 @@
 </div>
 <%= link_to "Back", pigeons_path, class: "btn btn-outline-dark mt-2" %>
 
+<%= simple_form_for @journey do |j| %>
+        <%= j.input :arrival_address %>
+        <%= j.input :arrival_date %>
+        <%= j.input :message%>
+        <%= j.button :submit, class: 'btn btn-primary' %>
+        <!-- dois afficher le total_price -->
+      <% end %>
