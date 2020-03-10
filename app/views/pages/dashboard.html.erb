@@ -1,2 +1,13 @@
 <h1> PROFIL </h1>
+
+  <h3>Journey</h3>
+  <ul>
+    <% @user.journeys.each do |j| %>
+    <ol>address: <%= j.arrival_address %></ol>
+    <ol> with message: <%=j.message  %></ol>
+    <ol> arrived  desired on <%= j.arrival_date %>
+      <!-- <ol> total price :</ol> -->
+  </ul>
+<% end %>
+
 <%= link_to "Back", pigeons_path, class: "btn btn-outline-dark mt-2" %>
