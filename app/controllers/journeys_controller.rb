@@ -5,9 +5,9 @@ class JourneysController < ApplicationController
     @journey.user = current_user
     @journey.pigeon = @pigeon
       if @journey.save
-     redirect_to dashboard_path(@pigeon)
+        redirect_to dashboard_path(@pigeon)
       else
-      render "pigeon_path" #page pigeon_id
+        render "pigeon_path" #page pigeon_id
       end
   end
 

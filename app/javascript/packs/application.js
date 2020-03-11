@@ -1,6 +1,14 @@
 import "bootstrap";
 
 
+import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
+
+import { initMapbox } from '../plugins/init_mapbox';
+import {initAutocomplete} from '../plugins/init_autocomplete'
+initMapbox();
+initAutocomplete();
+
+
 const links = document.querySelectorAll('.nav-link');
 
 links.forEach(link => link.addEventListener('mouseenter', shootLines));
@@ -47,3 +55,4 @@ function shootLines(e) {
 
   burst.play();
 }
+

@@ -1,6 +1,16 @@
 class PigeonsController < ApplicationController
   def index
     @pigeons = Pigeon.all
+
+
+    @markers = @pigeons.map do |pigeon|
+      {
+        lat: pigeon.latitude,
+        lng: pigeon.longitude,
+        infowindow: render_to_string(partial: "info_window", locals: { pigeon: pigeon }),
+        image_url: helpers.asset_url('piaf.png')
+      }
+    end
   end
 
   def new
