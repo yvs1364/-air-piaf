@@ -4,17 +4,17 @@ class JourneysController < ApplicationController
     @journey = Journey.new(params_journey)
     @journey.user = current_user
     @journey.pigeon = @pigeon
-      if @journey.save
-        redirect_to dashboard_path(@pigeon)
-      else
-        render "pigeon_path" #page pigeon_id
-      end
+    if @journey.save
+      redirect_to dashboard_path(@pigeon)
+    else
+      render "pigeons/show"
+      flash[:alert] = "Your are not connected !"
+    end
   end
 
   private
 
   def params_journey
-    params.require(:journey).permit(:user_id, :pigeon_id, :arrival_address,
-      :total_price, :arrival_date, :message)
+    params.require(:journey).permit(:arrival_address, :arrival_date, :message)
   end
 end
