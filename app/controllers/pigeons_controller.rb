@@ -11,6 +11,8 @@ class PigeonsController < ApplicationController
   def show
     @pigeon = Pigeon.find(params[:id])
     authorize @pigeon
+    @journey = Journey.new
+
   end
 
   def create
