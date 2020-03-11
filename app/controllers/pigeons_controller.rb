@@ -1,19 +1,23 @@
 class PigeonsController < ApplicationController
   def index
-    @pigeons = Pigeon.all
+    @pigeons = policy_scope(Pigeon)
   end
 
   def new
     @pigeon = Pigeon.new
+    authorize @pigeon
   end
 
   def show
     @pigeon = Pigeon.find(params[:id])
+    authorize @pigeon
     @journey = Journey.new
+
   end
 
   def create
     @pigeon = Pigeon.new(pigeon_params)
+    authorize @pigeon
     if @pigeon.save
       redirect_to pigeon_path(@pigeon)
     else
