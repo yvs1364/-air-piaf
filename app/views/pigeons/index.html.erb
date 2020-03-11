@@ -2,13 +2,16 @@
 
   <div class="cards">
   <% @pigeons.each do |pigeon| %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/seed/picsum/200/300)">
-    <h2><%=link_to pigeon.name, pigeon_path(pigeon) %></h2>
-
-
-    <p> Breed : <%= pigeon.breed %></p>
-    <p> Speed : <%= pigeon.km_per_hour %></p>
-    <p> Price : <%= pigeon.price_per_km %></p>
+  <div class="card-category">
+    <h2 class="name-pigeon-index"><%=link_to pigeon.name, pigeon_path(pigeon) %></h2>
+    <div class="card-trip-infos">
+    <div>
+      <p> Breed : <%= pigeon.breed %></p>
+      <p> Speed : <%= pigeon.km_per_hour %></p>
+    </div>
+    <h2 class="card-trip-pricing"><%= pigeon.price_per_km %> €/km</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
   </div>
   <% end %>
 </div>
