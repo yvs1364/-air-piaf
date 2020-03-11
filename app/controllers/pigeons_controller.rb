@@ -9,6 +9,7 @@ class PigeonsController < ApplicationController
 
   def show
     @pigeon = Pigeon.find(params[:id])
+    @journey = Journey.new
   end
 
   def create
