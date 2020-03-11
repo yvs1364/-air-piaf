@@ -4,6 +4,10 @@ class JourneysController < ApplicationController
     @journey = Journey.new(params_journey)
     @journey.user = current_user
     @journey.pigeon = @pigeon
+    @journey.geocode
+    @distance = @pigeon.distance_to([@journey.latitude, @journey.longitude])
+    @journey.total_price = @distance*@pigeon.price_per_km
+
     if @journey.save
       redirect_to dashboard_path(@pigeon)
     else
