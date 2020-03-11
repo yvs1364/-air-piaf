@@ -14,16 +14,17 @@ manu = User.create!(name: "Manu", email: "manu@mail.fr", password: "password", a
 puts "#{User.count} users created"
 
 
-pigeon_names = ["MattiOL", "Celio", "thibthibthib", "Laulau", "Beber", "Thethe", "Raphou", "eveuuuuuhh", "Seb", "Patoche", "Estelleuuuhh", "Jeromeeeeeuuuh", "Loulou", "Alixbaba", "Cams", "Gâteau", "Kevdu13", "Deivid"]
 
-pigeon_names.each do |pigeon_name|
+10.times do
   Pigeon.create!(
-    name: pigeon_name,
+    name: Faker::Name.middle_name,
     breed: ["Ice Pigeon", "Antwerp Smerle", "Oriental Roller", "Egyptian Swift pigeon", "Homing pigeon", "Lahore pigeon"].sample,
     km_per_hour: rand(50..120),
     price_per_km: rand(1..30),
-    address: ["Marseille", "Paris", "Lyon", "Pau", "Genay", "Venissieux", "Bordeaux", "Brest"].sample
+    address: ["Marseille", "Paris", "Lyon", "Pau", "Genay", "Venissieux", "Bordeaux", "Brest"].sample,
     user: [yvan, manu, mehdi].sample
   )
 end
 puts "#{Pigeon.count} pigeons created"
+
+#address
