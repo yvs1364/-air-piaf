@@ -8,6 +8,7 @@
     <div>
       <p> Breed : <%= pigeon.breed %></p>
       <p> Speed : <%= pigeon.km_per_hour %></p>
+      <p> Address : <%= pigeon.address %></p>
     </div>
     <h2 class="card-trip-pricing"><%= pigeon.price_per_km %> ct/km</h2>
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
@@ -16,6 +17,8 @@
   <% end %>
 </div>
 
+
+<%= link_to "Profil", dashboard_path, class: "btn btn-outline-dark mt-2" %>
 
 <div
   id="map"
