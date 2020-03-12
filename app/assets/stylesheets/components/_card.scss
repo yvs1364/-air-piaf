@@ -12,8 +12,11 @@
   top: 0;
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0,0,0,0.6);
+  opacity: 0;
 }
-
+#map.visible{
+  opacity: 1 !important;
+}
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
@@ -101,5 +104,3 @@
 .main-container {
   display: flex;
 }
-
-
