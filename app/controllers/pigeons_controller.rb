@@ -1,14 +1,15 @@
+# frozen_string_literal: true
+
 class PigeonsController < ApplicationController
   def index
     @pigeons = Pigeon.all
-
 
     @markers = @pigeons.map do |pigeon|
       {
         lat: pigeon.latitude,
         lng: pigeon.longitude,
         infowindow: render_to_string(partial: "info_window", locals: { pigeon: pigeon }),
-        image_url: helpers.asset_url('piaf.png')
+        image_url: helpers.asset_url("piaf.png")
       }
     end
   end
@@ -27,13 +28,13 @@ class PigeonsController < ApplicationController
     if @pigeon.save
       redirect_to pigeon_path(@pigeon)
     else
-      render 'new'
+      render "new"
     end
   end
 
   private
 
   def pigeon_params
-    params.require(:pigeon).permit(:name, :breed, :km_per_hour, :price_per_km,:users_id)
+    params.require(:pigeon).permit(:name, :breed, :km_per_hour, :price_per_km, :users_id)
   end
 end

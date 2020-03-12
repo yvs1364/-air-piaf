@@ -12,16 +12,19 @@
   <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
 </head>
 <body>
+  <%if notice %>
+    <p class="notice"><%= notice %></p>
+  <% end %>
   <%= render 'shared/navbar' %>
   <%= yield %>
 
-  <%= javascript_include_tag 'application' %>
-
-  <%= javascript_pack_tag 'application' %>
 
   <%= render 'shared/footer' %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<% if alert %>
+  <p class="alert alert-warning" role="alert"><%= alert %></p>
+  <% end %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_pack_tag 'application' %>
   <script src="https://cdn.jsdelivr.net/npm/@mojs/core"></script>
 </body>
 </html>

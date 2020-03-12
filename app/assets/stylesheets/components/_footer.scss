@@ -1,12 +1,13 @@
 
+
 .footer{
-  background: #FDCD01;
-  color:#D40310;
+  background: white;
+  color: black;
 
   .links{
     ul {list-style-type: none;}
     li a{
-      color: #D40310;
+      color: black;
       transition: color .2s;
       &:hover{
         text-decoration:none;
