@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PigeonsController < ApplicationController
-  def index
+   def index
     grow = 1
     scope = 10 * grow
     if params[:query].present?
@@ -12,14 +12,9 @@ class PigeonsController < ApplicationController
         results = Pigeon.near(params[:query], scope, units: :km).order(:distance).limit(3)
       end
       @pigeons = results
-    @markers = @pigeons.map do |pigeon|
-      {
-        lat: pigeon.latitude,
-        lng: pigeon.longitude,
-        infowindow: render_to_string(partial: "info_window", locals: { pigeon: pigeon }),
-        image_url: helpers.asset_url("piaf.png")
-      }
-    end
+
+    else
+      @pigeons = Pigeon.all
   end
 end
 
