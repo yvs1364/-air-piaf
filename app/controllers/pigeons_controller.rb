@@ -28,7 +28,6 @@ class PigeonsController < ApplicationController
       }
     end
   end
-end
 
   def new
     @pigeon = Pigeon.new
