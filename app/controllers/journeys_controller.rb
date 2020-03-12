@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class JourneysController < ApplicationController
   def create
     @pigeon = Pigeon.find(params[:pigeon_id])
@@ -6,7 +8,7 @@ class JourneysController < ApplicationController
     @journey.pigeon = @pigeon
     @journey.geocode
     @distance = @pigeon.distance_to([@journey.latitude, @journey.longitude])
-    @journey.total_price = @distance*@pigeon.price_per_km
+    @journey.total_price = @distance * @pigeon.price_per_km
 
     if @journey.save
       redirect_to dashboard_path(@pigeon)

@@ -1,15 +1,16 @@
 <h1> PROFIL </h1>
-
-  <h3>Journey</h3>
-  <ul>
+<div>
+<img class="picture" src="https://kitt.lewagon.com/placeholder/users/ssaunier">
+</div>
+  <div class="container" id="journey">
+    <h3>Journey history</h3>
     <% @user.journeys.each do |j| %>
-    <ol>address: <%= j.arrival_address %></ol>
-    <ol> with message: <%=j.message  %></ol>
-    <ol> arrived  desired on <%= j.arrival_date %>
-    <ol> Price <%= j.total_price / 10 %> €</ol>
-      <!-- <ol> total price :</ol> -->
-  </ul>
+    <p>Arrival address at : <%= j.arrival_address %></p>
+    <p> with message: <%=j.message  %></p>
+    <p> arrived desired on <%= j.arrival_date %></p>
+    <p> Price <%= j.total_price / 10 %> €</p>
 <% end %>
-
-<%= link_to "create", new_pigeon_path, class: "btn btn-outline-dark mt-2" %>
+<%= link_to "Create Pigeon ", new_pigeon_path, class: "btn btn-success mt-2" %>
 <%= link_to "Back", pigeons_path, class: "btn btn-outline-dark mt-2" %>
+</div>
+
