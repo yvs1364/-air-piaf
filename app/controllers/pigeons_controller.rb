@@ -2,8 +2,16 @@
 
 class PigeonsController < ApplicationController
   def index
-    @pigeons = Pigeon.all
-
+    grow = 1
+    scope = 10 * grow
+    if params[:query].present?
+      results = Pigeon.near(params[:query], scope).order(:distance)
+      while results.empty?
+        grow += 2
+        scope += 20 * grow
+        results = Pigeon.near(params[:query], scope, units: :km).order(:distance).limit(3)
+      end
+      @pigeons = results
     @markers = @pigeons.map do |pigeon|
       {
         lat: pigeon.latitude,
@@ -13,6 +21,7 @@ class PigeonsController < ApplicationController
       }
     end
   end
+end
 
   def new
     @pigeon = Pigeon.new
