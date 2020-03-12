@@ -1,7 +1,17 @@
 .cards {
+  margin-left: 80px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
+  flex-grow: 1;
+}
+#map {
+  margin-right: 80px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.6);
 }
 
 // Smallest device
@@ -54,7 +64,8 @@
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+
 }
 
 .card-category h2 {
@@ -84,3 +95,8 @@
   top: -20px;
   width: 40px;
 }
+.main-container {
+  display: flex;
+}
+
+
