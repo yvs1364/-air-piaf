@@ -23,7 +23,7 @@
           <p> Speed : <%= pigeon.km_per_hour %></p>
           <p> Address : <%= pigeon.address %></p>
 
-          <% if pigeon.distance.present? %>
+          <% if pigeon.respond_to? :distance? %>
          <p> <%= pigeon.distance.round %> km from your target address</p>
           <% end  %>
         </div>

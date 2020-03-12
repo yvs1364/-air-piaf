@@ -2,11 +2,6 @@
 
 class Pigeon < ApplicationRecord
   include PgSearch::Model
-  pg_search_scope :search_by_address,
-                  against: :address,
-                  using: {
-                    tsearch: { prefix: true }
-                  }
 
   belongs_to :user
   has_many :journeys, dependent: :destroy
