@@ -4,12 +4,19 @@
 </div>
   <div class="container" id="journey">
     <h3>Journey history</h3>
+    <div class="cards">
     <% @user.journeys.each do |j| %>
-    <p>Arrival address at : <%= j.arrival_address %></p>
-    <p> with message: <%=j.message  %></p>
-    <p> arrived desired on <%= j.arrival_date %></p>
-    <p> Price <%= j.total_price / 10 %> €</p>
+  <div class="card-dashboard" style="background-color: black, linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+<p>
+  Arrival address : <%= j.arrival_address %>
+</p>
+<p>Message: <%=j.message  %></p>
+    <p>Price: <%= j.total_price / 10 %> €</p>
+    <p>Arrival time: <%= j.arrival_date %></p>
+
+  </div>
 <% end %>
+</div>
 <%= link_to "Create Pigeon ", new_pigeon_path, class: "btn btn-success mt-2" %>
 <%= link_to "Back", pigeons_path, class: "btn btn-outline-dark mt-2" %>
 </div>

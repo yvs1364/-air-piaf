@@ -3,23 +3,45 @@
   <!-- <div class="container"> -->
     <div class="row">
 
-    <div class="col-12 col-lg-8">
-      <div class="cards">
-      <% @pigeons.each do |pigeon| %>
-      <div class="card-category" data-lat="<%= pigeon.latitude %>" data-lng="<%= pigeon.longitude %>">
-        <h2 class="name-pigeon-index"><%=link_to pigeon.name, pigeon_path(pigeon) %></h2>
-        <div class="card-trip-infos">
-          <div>
-            <p> Breed : <%= pigeon.breed %></p>
-            <p> Speed : <%= pigeon.km_per_hour %></p>
-            <p> Address : <%= pigeon.address %></p>
-          </div>
-          <h2 class="card-trip-pricing"><%= pigeon.price_per_km %> ct/km</h2>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+
+  <div class="col-12 col-lg-8">
+
+    <%= form_tag pigeons_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control", id: "address",
+    placeholder: "Where do you want to send your message with a pigeon?"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+    <div class="cards">
+    <% @pigeons.each do |pigeon| %>
+    <% if pigeon.journeys.present? %>
+
+
+      <% if pigeon.journeys.last.arrival_date < Time.now %>
+      <% pigeon.available = true %>
+      <% pigeon.save %>
+      <% end %>
+      <% end %>
+    <% if pigeon.available %>
+    <div class="card-category" data-lat="<%= pigeon.latitude %>" data-lng="<%= pigeon.longitude %>">
+      <h2 class="name-pigeon-index"><%=link_to pigeon.name, pigeon_path(pigeon) %></h2>
+      <div class="card-trip-infos">
+        <div>
+          <p> Breed : <%= pigeon.breed %></p>
+          <p> Speed : <%= pigeon.km_per_hour %></p>
+          <p> Address : <%= pigeon.address %></p>
+
+
+          <% if pigeon.respond_to? :distance? %>
+         <p> <%= pigeon.distance.round %> km from your target address</p>
+          <% end  %>
         </div>
       </div>
         <% end %>
     </div>
+
       </div>
       <div class="col-12 col-lg-4">
     <div
@@ -30,9 +52,11 @@
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
       </div>
-  </div>
 
-<!-- </div> -->
+      <% end %>
+      <% end %>
+
+  </div>
 
 
 
