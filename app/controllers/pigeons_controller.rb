@@ -2,7 +2,11 @@
 
 class PigeonsController < ApplicationController
   def index
-    @pigeons = Pigeon.all
+    if params[:query].present?
+      @pigeons = Pigeon.where(address: params[:query])
+    else
+      @pigeons = Pigeon.all
+  end
 
     @markers = @pigeons.map do |pigeon|
       {

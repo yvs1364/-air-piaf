@@ -4,6 +4,15 @@
   <div class="row">
 
   <div class="col-12 col-lg-8">
+
+    <%= form_tag pigeons_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Where do you want to send your message with a pigeon?"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
     <div class="cards">
     <% @pigeons.each do |pigeon| %>
     <div class="card-category">
