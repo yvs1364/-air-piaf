@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class PigeonsController < ApplicationController
-   def index
+  def index
+
     grow = 1
     scope = 10 * grow
     if params[:query].present?
@@ -15,6 +16,17 @@ class PigeonsController < ApplicationController
 
     else
       @pigeons = Pigeon.all
+
+  end
+
+    @markers = @pigeons.map do |pigeon|
+      {
+        lat: pigeon.latitude,
+        lng: pigeon.longitude,
+        infowindow: render_to_string(partial: "info_window", locals: { pigeon: pigeon }),
+        image_url: helpers.asset_url("piaf.png")
+      }
+    end
   end
 end
 

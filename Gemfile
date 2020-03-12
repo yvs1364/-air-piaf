@@ -20,7 +20,9 @@ gem "webpacker"
 gem "cloudinary", "~> 1.12.0"
 gem "devise"
 
-gem 'faker'
+gem "faker"
+
+gem "pg_search", "~> 2.3.0"
 
 group :development do
   gem "web-console", ">= 3.3.0"
