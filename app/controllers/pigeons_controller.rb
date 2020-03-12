@@ -29,9 +29,12 @@ end
 
   def create
     @pigeon = Pigeon.new(pigeon_params)
+    @pigeon.user_id = current_user.id
     if @pigeon.save
       redirect_to pigeon_path(@pigeon)
+
     else
+      raise
       render "new"
     end
   end
@@ -39,6 +42,6 @@ end
   private
 
   def pigeon_params
-    params.require(:pigeon).permit(:name, :breed, :km_per_hour, :price_per_km, :users_id)
+    params.require(:pigeon).permit(:name, :breed, :km_per_hour, :price_per_km, :user_id, :address)
   end
 end
