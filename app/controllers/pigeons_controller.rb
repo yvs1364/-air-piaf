@@ -42,8 +42,7 @@ class PigeonsController < ApplicationController
     @pigeon = Pigeon.new(pigeon_params)
     @pigeon.user_id = current_user.id
     if @pigeon.save
-      redirect_to pigeon_path(@pigeon)
-
+      redirect_to dashboard_path(@pigeon)
     else
       raise
       render "new"
