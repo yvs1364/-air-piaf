@@ -22,6 +22,10 @@
           <p> Breed : <%= pigeon.breed %></p>
           <p> Speed : <%= pigeon.km_per_hour %></p>
           <p> Address : <%= pigeon.address %></p>
+
+          <% if pigeon.distance.present? %>
+         <p> <%= pigeon.distance.round %> km from your target address</p>
+          <% end  %>
         </div>
         <h2 class="card-trip-pricing"><%= pigeon.price_per_km %> ct/km</h2>
         <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />

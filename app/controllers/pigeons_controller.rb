@@ -2,12 +2,14 @@
 
 class PigeonsController < ApplicationController
   def index
-    scope = 10
+    grow = 1
+    scope = 10 * grow
     if params[:query].present?
       results = Pigeon.near(params[:query], scope).order(:distance)
       while results.empty?
-        scope += 50
-        results = Pigeon.near(params[:query], scope).order(:distance)
+        grow += 2
+        scope += 20 * grow
+        results = Pigeon.near(params[:query], scope, units: :km).order(:distance).limit(3)
       end
       @pigeons = results
 
