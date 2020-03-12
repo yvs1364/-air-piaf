@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Pigeon < ApplicationRecord
+  include PgSearch::Model
+
   belongs_to :user
   has_many :journeys, dependent: :destroy
   validates :name, presence: true
