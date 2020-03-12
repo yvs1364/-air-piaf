@@ -2,8 +2,15 @@
 
 class PigeonsController < ApplicationController
   def index
+    scope = 10
     if params[:query].present?
-      @pigeons = Pigeon.where(address: params[:query])
+      results = Pigeon.near(params[:query], scope).order(:distance)
+      while results.empty?
+        scope += 50
+        results = Pigeon.near(params[:query], scope).order(:distance)
+      end
+      @pigeons = results
+
     else
       @pigeons = Pigeon.all
   end
