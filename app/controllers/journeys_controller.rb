@@ -21,6 +21,7 @@ class JourneysController < ApplicationController
       render "pigeons/show"
       flash[:alert] = "Your are not connected !"
     end
+    authorize @journey
   end
 
   private
