@@ -24,22 +24,11 @@
 
       </div>
       <% end %>
-    </div>
-      <div class="col-6">
-
-      <h3>Journey history</h3>
-      <% @user.journeys.each do |j| %>
-      <div class="card-dashboard" style="background-color: black, linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
-        <p>Arrival address : <%= j.arrival_address %></p>
-        <p>Message: <%=j.message  %></p>
-        <p>Price: <%= j.total_price / 10 %> €</p>
-        <p>Arrival time: <%= j.arrival_date  %></p>
-    </div>
-    <% end %>
   </div>
     <div class="col-6">
     <h3>Pigeon Army</h3>
-    <h4>Pigeons in service</h1>
+    <p>------------------------------------------------------</p>
+    <h4>Pigeons in service</h4>
     <% @user.pigeons.each do |pigeon| %>
     <% if pigeon.available == false %>
     <p><%= pigeon.name %></p>
@@ -47,13 +36,13 @@
       <p>Will be back home: <%= pigeon.journeys.last.return_date %></p>
     <% end %>
     <% end %>
-    <p>--------------------------</p>
+    <p>------------------------------------------------------</p>
     <h4>Pigeons availables</h4>
     <% @user.pigeons.each do |pigeon| %>
     <% if pigeon.available == true %>
     <p><%= pigeon.name %></p>
     <% end %>
-    <% end %
+    <% end %>
   </div>
 </div>
 <%= link_to "Create Pigeon ", new_pigeon_path, class: "btn btn-success mt-2" %>
