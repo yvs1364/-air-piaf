@@ -58,11 +58,11 @@ class PigeonsController < ApplicationController
   end
 
   def destroy
-    authorize @pigeon
     @pigeon = Pigeon.find(params[:id])
     @pigeon.destroy
+        authorize @pigeon
+
     redirect_to pigeons_path
-    authorize @pigeon
   end
 
   private
