@@ -22,7 +22,7 @@ pigeon_names.each do |pigeon_name|
     breed: ['Ice Pigeon', 'Antwerp Smerle', 'Oriental Roller', 'Egyptian Swift pigeon', 'Homing pigeon', 'Lahore pigeon'].sample,
     km_per_hour: rand(50..120),
     price_per_km: rand(10..30),
-    address: %w[Marseille Paris Lyon Pau Genay Venissieux Bordeaux Brest berlin lisbonne milan tokyo].sample,
+    address: %w[Marseille Paris Lyon Pau Genay Bamako Bordeaux cleveland berlin lisbonne milan tokyo].sample,
     user: [yvan, manu, mehdi].sample
   )
 end
