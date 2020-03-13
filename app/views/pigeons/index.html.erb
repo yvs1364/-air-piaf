@@ -16,18 +16,18 @@
       <div class="cards">
         <% @pigeons.each do |pigeon| %>
         <% if pigeon.journeys.present? %>
-        <% if pigeon.journeys.last.arrival_date < Time.now %>
+        <% if pigeon.journeys.last.return_date < Time.now %>
         <% pigeon.available = true %>
         <% pigeon.save %>
         <% end %>
         <% end %>
 
         <% if pigeon.available %>
+
         <div class="card-trip" data-lat="<%= pigeon.latitude %>" data-lng="<%= pigeon.longitude %>">
          <%= image_tag "pigeon4.jpg" %>
           <h2 class="name-pigeon-index"><%=link_to pigeon.name, pigeon_path(pigeon) %></h2>
           <div class="card-trip-infos">
-            <div>
               <p> Breed : <%= pigeon.breed %></p>
               <p> Speed : <%= pigeon.km_per_hour %></p>
               <p> Address : <%= pigeon.address %></p>
