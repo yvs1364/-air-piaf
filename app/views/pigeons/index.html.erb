@@ -25,7 +25,8 @@
         <% if pigeon.available %>
 
         <div class="card-trip" data-lat="<%= pigeon.latitude %>" data-lng="<%= pigeon.longitude %>">
-         <%= image_tag "pigeon4.jpg" %>
+          <img class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path pigeon.photo.key, crop: :fill %>')"/>
+
           <h2 class="name-pigeon-index"><%=link_to pigeon.name, pigeon_path(pigeon) %></h2>
           <div class="card-trip-infos">
               <p> Breed : <%= pigeon.breed %></p>
@@ -34,11 +35,12 @@
               <% if pigeon.respond_to? :distance? %>
               <p> <%= pigeon.distance.round %> km from your target address</p>
               <% end  %>
-            </div>
           </div>
         </div>
+         <% end %>
           <% end %>
-          <% end %>
+      </div>
+
       </div>
     </div>
       <div class="col-12 col-lg-4">

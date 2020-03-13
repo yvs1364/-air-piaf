@@ -14,7 +14,7 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20 px;
+  grid-gap: 16 px;
 }
 
 // Smallest device
@@ -55,6 +55,9 @@
 .card-category {
   background-size: cover;
   background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.6);
