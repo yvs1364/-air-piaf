@@ -16,7 +16,7 @@
       <div class="cards">
         <% @pigeons.each do |pigeon| %>
         <% if pigeon.journeys.present? %>
-        <% if pigeon.journeys.last.arrival_date < Time.now %>
+        <% if pigeon.journeys.last.return_date < Time.now %>
         <% pigeon.available = true %>
         <% pigeon.save %>
         <% end %>
