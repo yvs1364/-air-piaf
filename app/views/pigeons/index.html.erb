@@ -23,10 +23,11 @@
         <% end %>
 
         <% if pigeon.available %>
-        <div class="card-category" data-lat="<%= pigeon.latitude %>" data-lng="<%= pigeon.longitude %>">
+
+        <div class="card-category" data-lat="<%= pigeon.latitude %>" data-lng="<%= pigeon.longitude %>" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path pigeon.photo.key, height: 300, width: 400, crop: :fill %>')">
+
           <h2 class="name-pigeon-index"><%=link_to pigeon.name, pigeon_path(pigeon) %></h2>
           <div class="card-trip-infos">
-            <div>
               <p> Breed : <%= pigeon.breed %></p>
               <p> Speed : <%= pigeon.km_per_hour %></p>
               <p> Address : <%= pigeon.address %></p>

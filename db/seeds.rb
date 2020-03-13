@@ -15,17 +15,17 @@ manu = User.create!(name: 'Manu', email: 'manu@mail.fr', password: 'password', a
 
 puts "#{User.count} users created"
 
-pigeon_names = %w[MattiOL Celio thibthibthib Laulau Beber Thethe Raphou eveuuuuuhh Seb Patoche Estelleuuuhh Jeromeeeeeuuuh Loulou Alixbaba Cams Gâteau Kevdu13 Deivid]
-pigeon_names.each do |pigeon_name|
-  Pigeon.create!(
-    name: pigeon_name,
-    breed: ['Ice Pigeon', 'Antwerp Smerle', 'Oriental Roller', 'Egyptian Swift pigeon', 'Homing pigeon', 'Lahore pigeon'].sample,
-    km_per_hour: rand(50..120),
-    price_per_km: rand(10..30),
-    address: %w[Marseille Paris Lyon Pau Genay Venissieux Bordeaux Brest berlin lisbonne milan tokyo].sample,
-    user: [yvan, manu, mehdi].sample
-  )
-end
-puts "#{Pigeon.count} pigeons created"
+# pigeon_names = %w[MattiOL Celio thibthibthib Laulau Beber Thethe Raphou eveuuuuuhh Seb Patoche Estelleuuuhh Jeromeeeeeuuuh Loulou Alixbaba Cams Gâteau Kevdu13 Deivid]
+# pigeon_names.each do |pigeon_name|
+#   Pigeon.create!(
+#     name: pigeon_name,
+#     breed: ['Ice Pigeon', 'Antwerp Smerle', 'Oriental Roller', 'Egyptian Swift pigeon', 'Homing pigeon', 'Lahore pigeon'].sample,
+#     km_per_hour: rand(50..120),
+#     price_per_km: rand(10..30),
+#     address: %w[Marseille Paris Lyon Pau Genay Venissieux Bordeaux Brest berlin lisbonne milan tokyo].sample,
+#     user: [yvan, manu, mehdi].sample
+#   )
+# end
+# puts "#{Pigeon.count} pigeons created"
 
 # address

@@ -12,6 +12,7 @@
             <th>In <%= @pigeon.address %> </th>
             <th><%= @pigeon.km_per_hour%> km/h </th>
             <th><%= @pigeon.price_per_km %> ct/km</th>
+            <%= cl_image_tag @pigeon.photo.key, height: 300, width: 400, crop: :fill %>
           </thead>
         </tbody>
       </table>

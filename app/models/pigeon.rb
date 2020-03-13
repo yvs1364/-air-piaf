@@ -2,8 +2,8 @@
 
 class Pigeon < ApplicationRecord
   include PgSearch::Model
-
   belongs_to :user
+  has_one_attached :photo
   has_many :journeys, dependent: :destroy
   validates :name, presence: true
   validates :breed, presence: true
