@@ -12,6 +12,10 @@
             <th>In <%= @pigeon.address %> </th>
             <th><%= @pigeon.km_per_hour%> km/h </th>
             <th><%= @pigeon.price_per_km %> ct/km</th>
+            <%= link_to pigeon_path(@pigeon), method: :delete, data: { confirm: "Are you sure?" } do %>
+<i class="fa fa-trash destroy_pigeon"></i>
+
+<% end %>
           </thead>
         </tbody>
       </table>
