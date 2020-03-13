@@ -1,9 +1,32 @@
 <h1> PROFIL </h1>
-<div class="contain">
-  <img class="picture" src="https://kitt.lewagon.com/placeholder/users/ssaunier">
-</div>
-    <div class="row">
+<div class="container">
+  <div class="contain">
+    <img class="picture" src="https://kitt.lewagon.com/placeholder/users/ssaunier">
+  </div>
+      <div class="row">
+        <div class="col-6">
+        <h3>Journey history</h3>
+        <% @user.journeys.each do |j| %>
+        <div class="card-dashboard" style="background-color: black, linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+          <p>------------------------------------------------------------------</p>
+          <div class="panneau">
+          <h5 style="color: white;">Arrival address !</h5>
+            <% j.arrival_address.split("").each do |letter| %>
+              <% break if letter == ","  %>
+              <div class="letter">
+                <p1><%= letter %></p1>
+              </div><!--  -->
+            <% end  %>
+          </div>
+          <p>Message: <%=j.message  %></p>
+          <p>Price: <%= j.total_price / 10 %> €</p>
+          <p>Arrival time: <%= j.arrival_date %></p>
+
+      </div>
+      <% end %>
+    </div>
       <div class="col-6">
+
       <h3>Journey history</h3>
       <% @user.journeys.each do |j| %>
       <div class="card-dashboard" style="background-color: black, linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
@@ -30,11 +53,10 @@
     <% if pigeon.available == true %>
     <p><%= pigeon.name %></p>
     <% end %>
-    <% end %>
-
-
+    <% end %
   </div>
 </div>
-
 <%= link_to "Create Pigeon ", new_pigeon_path, class: "btn btn-success mt-2" %>
 <%= link_to "Back", pigeons_path, class: "btn btn-outline-dark mt-2" %>
+
+
