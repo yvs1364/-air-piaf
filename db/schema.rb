@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_142954) do
+ActiveRecord::Schema.define(version: 2020_03_13_111339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,11 +21,12 @@ ActiveRecord::Schema.define(version: 2020_03_12_142954) do
     t.string "arrival_address"
     t.text "message"
     t.integer "total_price"
-    t.datetime "arrival_date"
+    t.datetime "return_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.datetime "arrival_date"
     t.index ["pigeon_id"], name: "index_journeys_on_pigeon_id"
     t.index ["user_id"], name: "index_journeys_on_user_id"
   end

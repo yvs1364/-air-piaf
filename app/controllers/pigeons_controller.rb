@@ -10,7 +10,7 @@ class PigeonsController < ApplicationController
       while results.empty?
         grow += 2
         scope += 20 * grow
-        results = Pigeon.near(params[:query], scope, units: :km).order(:distance).limit(3)
+        results = Pigeon.near(params[:query], scope, units: :km).order(:distance).limit(4)
       end
       @pigeons = results
 

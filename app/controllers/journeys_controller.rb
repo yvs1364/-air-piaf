@@ -10,7 +10,9 @@ class JourneysController < ApplicationController
     @distance = @pigeon.distance_to([@journey.latitude, @journey.longitude])
     @journey.total_price = @distance * @pigeon.price_per_km
     @duration = (@distance / @pigeon.km_per_hour) * 2
-    @journey.arrival_date = Time.now + @duration.hours
+    @duration_one_way = @duration / 2
+    @journey.return_date = Time.now + @duration.hours
+    @journey.arrival_date = Time.now  + @duration_one_way.hours
     @pigeon.available = false
     @pigeon.save
     if @journey.save
@@ -24,6 +26,6 @@ class JourneysController < ApplicationController
   private
 
   def params_journey
-    params.require(:journey).permit(:arrival_address, :arrival_date, :message)
+    params.require(:journey).permit(:arrival_address, :return_date, :message)
   end
 end
