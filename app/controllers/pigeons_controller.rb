@@ -2,6 +2,7 @@
 
 class PigeonsController < ApplicationController
   def index
+    @pigeons = policy_scope(Pigeon).order(created_at: :desc)
     grow = 1
     scope = 10 * grow
     if params[:query].present?
@@ -29,15 +30,22 @@ class PigeonsController < ApplicationController
   end
 
   def new
+    @pigeon = policy_scope(Pigeon).order(created_at: :desc)
     @pigeon = Pigeon.new
+    authorize @pigeon
   end
 
   def show
+    @pigeon = policy_scope(Pigeon).order(created_at: :desc)
+
     @pigeon = Pigeon.find(params[:id])
     @journey = Journey.new
+    authorize @pigeon
   end
 
   def create
+    @pigeon = policy_scope(Pigeon).order(created_at: :desc)
+
     @pigeon = Pigeon.new(pigeon_params)
     @pigeon.user_id = current_user.id
     if @pigeon.save
@@ -46,6 +54,15 @@ class PigeonsController < ApplicationController
       raise
       render "new"
     end
+    authorize @pigeon
+  end
+
+  def destroy
+    authorize @pigeon
+    @pigeon = Pigeon.find(params[:id])
+    @pigeon.destroy
+    redirect_to pigeons_path
+    authorize @pigeon
   end
 
   private
