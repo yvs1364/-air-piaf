@@ -15,6 +15,7 @@ manu = User.create!(name: 'Manu', email: 'manu@mail.fr', password: 'password', a
 
 puts "#{User.count} users created"
 
+
 pigeon_names = %w[MattiOL Celio thibthibthib Laulau Beber Thethe Raphou eveuuuuuhh Seb Patoche Estelleuuuhh Jeromeeeeeuuuh Loulou Alixbaba Cams Gâteau Kevdu13 Deivid]
 pigeon_names.each do |pigeon_name|
   Pigeon.create!(
@@ -28,4 +29,3 @@ pigeon_names.each do |pigeon_name|
 end
 puts "#{Pigeon.count} pigeons created"
 
-# address
