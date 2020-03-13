@@ -2,7 +2,6 @@
 
 class PigeonsController < ApplicationController
   def index
-
     grow = 1
     scope = 10 * grow
     if params[:query].present?

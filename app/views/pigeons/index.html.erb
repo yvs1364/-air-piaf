@@ -24,7 +24,7 @@
 
         <% if pigeon.available %>
         <div class="card-trip" data-lat="<%= pigeon.latitude %>" data-lng="<%= pigeon.longitude %>">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+         <%= image_tag "pigeon4.jpg" %>
           <h2 class="name-pigeon-index"><%=link_to pigeon.name, pigeon_path(pigeon) %></h2>
           <div class="card-trip-infos">
             <div>
