@@ -25,7 +25,7 @@ const fitMapToMarkers = (map, markers) => {
 };
 
 const initMapbox = () => {
-  const cards = document.querySelectorAll(".card-category")
+  const cards = document.querySelectorAll(".card-trip")
   const mapElement = document.getElementById('map');
   if (mapElement) {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
