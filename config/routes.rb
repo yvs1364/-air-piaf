@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard'
-  resources :pigeons, only: %i[index new show create] do
+  resources :pigeons, only: %i[index new show create destroy] do
     resources :journeys, only: :create
   end
 end

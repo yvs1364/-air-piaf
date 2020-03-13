@@ -1,7 +1,7 @@
   <h1> Index </h1>
 
-  <!-- <div class="container"> -->
-<div class="row">
+<div class="container-fluid" >
+  <div class="row">
 
   <div class="col-12 col-lg-8">
     <div class="search">
@@ -16,16 +16,14 @@
       <div class="cards">
         <% @pigeons.each do |pigeon| %>
         <% if pigeon.journeys.present? %>
-        <% if pigeon.journeys.last.arrival_date < Time.now %>
+        <% if pigeon.journeys.last.return_date < Time.now %>
         <% pigeon.available = true %>
         <% pigeon.save %>
         <% end %>
         <% end %>
 
         <% if pigeon.available %>
-
         <div class="card-category" data-lat="<%= pigeon.latitude %>" data-lng="<%= pigeon.longitude %>" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path pigeon.photo.key, height: 300, width: 400, crop: :fill %>')">
-
           <h2 class="name-pigeon-index"><%=link_to pigeon.name, pigeon_path(pigeon) %></h2>
           <div class="card-trip-infos">
               <p> Breed : <%= pigeon.breed %></p>
@@ -50,8 +48,8 @@
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
+  </div>
 </div>
-
 
 
 
