@@ -51,7 +51,6 @@ class PigeonsController < ApplicationController
     if @pigeon.save
       redirect_to dashboard_path(@pigeon)
     else
-      raise
       render "new"
     end
     authorize @pigeon
